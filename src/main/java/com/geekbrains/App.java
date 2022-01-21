@@ -18,7 +18,7 @@ public class App
 
         // Сценарий авторизации на сайте imgur.com
         driver.get("https://imgur.com");
-        WebDriverWait webDriverWait = new WebDriverWait(driver,Duration.ofSeconds(3));
+        WebDriverWait webDriverWait = new WebDriverWait(driver,Duration.ofSeconds(5));
         driver.findElement(By.xpath("//a[.='Sign in']")).click();
         driver.findElement(By.id("username")).sendKeys("testerrus33@gmail.com");
         driver.findElement(By.id("password")).sendKeys("Student2020!");
