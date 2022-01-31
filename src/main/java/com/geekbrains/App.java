@@ -7,9 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
+
 public class App
 {
     public static void main(String[] args) throws InterruptedException {
+
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
