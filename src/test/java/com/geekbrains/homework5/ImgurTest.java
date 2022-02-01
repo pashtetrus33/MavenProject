@@ -15,6 +15,7 @@ import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static ru.yandex.qatools.htmlelements.matchers.WebElementMatchers.hasText;
 
+/*
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ImgurTest {
     static WebDriver driver;
@@ -31,7 +32,8 @@ public class ImgurTest {
     driver.get(IMGUR_URL);
     driver.manage().window().maximize();
     }
-    /*@Test
+    */
+/*@Test
     void imgurCookieTest() throws InterruptedException {
 
         // C помощью cookie не получилось авторизоваться :(
@@ -46,7 +48,8 @@ public class ImgurTest {
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
         Thread.sleep(5000);
-    }*/
+    }*//*
+
 
     @Test
     @Order(1)
@@ -120,3 +123,4 @@ public class ImgurTest {
     static void tearDown() {
         driver.quit();  }
 }
+*/
