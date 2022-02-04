@@ -1,0 +1,1 @@
+https://s.imgur.com/desktop-assets/js/home.07b2d0069dc2da827a15.bundle.js 0:85486 Uncaught DOMException: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD
