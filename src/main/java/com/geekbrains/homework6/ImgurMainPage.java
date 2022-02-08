@@ -1,5 +1,6 @@
 package com.geekbrains.homework6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,7 +35,8 @@ public class ImgurMainPage extends BasePage {
     @FindBy(xpath = POST_TITLE_FIELD_BY_XPATH)
     private WebElement postTitleField;
 
-    @FindBy(xpath = "//div[@class='Dialog-wrapper']//img[contains(@src,'close')]")
+    private final static String CLOSE_DIALOG_BUTTON_BY_XPATH = "//div[@class='Dialog-wrapper']//img[contains(@src,'close')]";
+    @FindBy(xpath = CLOSE_DIALOG_BUTTON_BY_XPATH)
     private WebElement closeDialogButton;
 
     private final static String UPLOAD_DIALOG_BY_XPATH = "//div[@class='Dialog-wrapper']";
@@ -60,29 +62,32 @@ public class ImgurMainPage extends BasePage {
        super(driver);
     }
 
+    @Step("Клик на кнопку логина главной страницы")
     public ImgurSignInPage clickSignInButton() {
         signInButton.click();
         webDriverWait.until(ExpectedConditions.titleIs("Sign In - Imgur"));
         assertTrue(driver.getCurrentUrl().contentEquals("https://imgur.com/signin?redirect=%2F"));
         return new ImgurSignInPage(driver);
     }
-
+    @Step("Клик на кнопку создания нового поста")
     public ImgurMainPage clickNewPostButton() {
         newPostButton.click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(INPUT_NEW_POST_FIELD_BY_XPATH)));
         assertTrue(driver.getCurrentUrl().contentEquals("https://imgur.com/upload"));
         return this;
     }
-
+    @Step("Загрузить изображение")
     public ImgurMainPage sendImage(String s) {
         inputNewPostField.sendKeys(s);
         return this;
     }
+    @Step("Добавление описания к новому посту")
     public ImgurMainPage sendPostTitle(String s) {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(POST_TITLE_FIELD_BY_XPATH)));
         postTitleField.sendKeys(s);
         return this;
     }
+    @Step("Клик на кнопку  для копирования ссылки на новый пост")
     public ImgurMainPage clickGrabLinkButton() throws InterruptedException {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(GRAB_LINK_BUTTON_BY_XPATH)));
         //webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(GRAB_LINK_BUTTON_BY_XPATH)));
@@ -91,10 +96,13 @@ public class ImgurMainPage extends BasePage {
         assertThat(getUploadDialogText, hasText("Here's your link!"));
         return this;
     }
+    @Step("Клик на кнопку закрытия диалогоа добовления нового поста")
     public ImgurMainPage closeDialogButton() {
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(CLOSE_DIALOG_BUTTON_BY_XPATH)));
         closeDialogButton.click();
         return this;
     }
+    @Step("Клик на кнопку выхода из учетной записи")
     public ImgurMainPage clickSignOutButton() {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(SIGN_OUT_BUTTON_BY_XPATH)));
         signOutButton.click();
@@ -102,7 +110,7 @@ public class ImgurMainPage extends BasePage {
         assertThat(signOutHeader, hasText("You have been signed out"));
         return this;
     }
-
+    @Step("Клик по изображению с именем авторизованного пользователя")
     public ImgurMainPage clickLoggedInUserName() {
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LOGGEDINUSERNAME_BY_XPATH)));
         loggedInUserName.click();

@@ -1,5 +1,6 @@
 package com.geekbrains.homework6;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,16 +33,19 @@ public class ImgurSignInPage extends BasePage {
         super(driver);
     }
 
+    @Step("Заполнить поле логина")
     public ImgurSignInPage typeUsername(String s) {
         username.sendKeys(s);
         return this;
     }
 
+    @Step("Заполнить поле пароля")
     public ImgurSignInPage typePassword(String s) {
         password.sendKeys(s);
         return this;
     }
 
+    @Step("Клик на кнопку Submit для отправки логина и пароля на сервер")
     public ImgurMainPage clickSubmit() {
         submitButton.click();
         webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(LOGGEDINUSERNAME_BY_XPATH)));
