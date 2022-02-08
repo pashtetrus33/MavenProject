@@ -1,1 +1,0 @@
-{"uuid":"05bc6a22-51e8-49d0-a82e-a27c3c963953","name":"Позитивная проверка c помощью библиотеки AssertJ","children":["ab49fbef-0ffc-429b-af6c-3cbcd87da6ea"],"befores":[{"name":"beforeEach","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1643983906813,"stop":1643983906813}],"afters":[],"start":1643983906798,"stop":1643983906860}

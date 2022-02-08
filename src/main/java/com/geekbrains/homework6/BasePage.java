@@ -69,8 +69,8 @@ abstract public class BasePage {
     }
 
     @Step("Проверить текст алерта")
-    public BasePage checkAlertText() {
-        assertEquals(driver.switchTo().alert().getText(), "Alert test");
+    public BasePage checkAlertText(String text) {
+        assertEquals(driver.switchTo().alert().getText(), text);
         return this;
     }
 }

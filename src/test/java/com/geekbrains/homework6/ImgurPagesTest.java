@@ -104,7 +104,7 @@ public class ImgurPagesTest {
     void alertTest() {
         new ImgurMainPage(driver)
                 .sendAlert("Alert test")
-                .checkAlertText()
+                .checkAlertText("Alert test")
                 .acceptAlert();
 
     }
