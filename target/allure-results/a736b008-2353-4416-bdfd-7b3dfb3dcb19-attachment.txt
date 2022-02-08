@@ -1,0 +1,1 @@
+https://static.pulse.mail.ru/pulse-lenta-1.167.0.js 0:460941 "[Pulse Advert] Cannot initialize advert on detached element"
